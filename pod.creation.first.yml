@@ -14,14 +14,14 @@ spec:
       livenessProbe:
         httpGet:
           path: /index.html
-          initialDelaySeconds: 15
           port: 80
-          failureThreshold: 1
-          timeoutSeconds: 5
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 1
       readinessProbe:
         httpGet:
           path: /index.html
           port: 80
-          initialDelaySeconds: 3
-          failureThreshold: 3
-          timeoutSeconds: 5
+        periodSeconds: 2
+        initialDelaySeconds: 3
+        failureThreshold: 1

@@ -26,4 +26,7 @@ spec:
           command: ["cat" , "/index.js"]
         initialDelaySeconds: 10
         periodSeconds: 10
-        
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi

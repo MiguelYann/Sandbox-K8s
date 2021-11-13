@@ -25,3 +25,7 @@ spec:
         periodSeconds: 2
         initialDelaySeconds: 3
         failureThreshold: 1
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi

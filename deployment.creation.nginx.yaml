@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front
+
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: my-front
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 6
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi

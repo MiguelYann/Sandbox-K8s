@@ -1,6 +1,6 @@
 # Sandbox-K8s
 
-This repository is about playing with few K8s.
+This repository is about playing with few K8s objects.
 
 ## How to play 
 

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-second-deploy
+  labels:
+    app: front2
+spec:
+  selector:
+    matchLabels:
+      app: front2
+  template:
+    metadata:
+      name: pod-nginx2
+      labels:
+        app: "front2"
+    spec:
+      containers:
+        - name: second-nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80 
+          resources:
+            limits:
+              cpu: 50m
+              memory: 100Mi
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+    

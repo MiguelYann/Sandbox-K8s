@@ -8,8 +8,8 @@ This repository is about playing with few K8s.
 
 You must have some prerequistes to play with resources created:
 
-  * <br style="color: green">Install Cluster K8s</b>(You highly recommand [Minikube](https://kubernetes.io/fr/docs/setup/learning-environment/minikube/))
-  * <br style="color: green">Kubectl</b>
+  * Install Cluster K8s</b>(You highly recommand [Minikube](https://kubernetes.io/fr/docs/setup/learning-environment/minikube/))
+  * Kubectl
 
 ### How to launch
 

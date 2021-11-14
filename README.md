@@ -30,8 +30,8 @@ Application follow theses structures:
 │   ├── deployment.first-nginx.yaml
 │   └── deployment.second-nginx.yaml
 ├── pods
-│   ├── pod.nginx.yml
-│   └── pod.node.yml
+│   ├── pod.nginx.yaml
+│   └── pod.node.yaml
 └── services
     ├── service.first-clusterip.yaml
     ├── service.loadbalancer.yaml

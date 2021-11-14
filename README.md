@@ -27,7 +27,6 @@ Application follow theses structures:
 ```sh
 ├── README.md
 ├── deployments
-│   ├── README.md
 │   ├── deployment.first-nginx.yaml
 │   └── deployment.second-nginx.yaml
 ├── pods

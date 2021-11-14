@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-second-deploy
+  name: deployment-second-nginx
   labels:
     app: front2
 spec:

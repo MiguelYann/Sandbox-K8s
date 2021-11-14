@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-app
+  name: second-service-app
   labels:
     tier: rp
-
 spec:
   type: ClusterIP
   selector:
-    app: front
-    
+    app: front2
+
   ports:
-    - name: http
-      port: 8080
+    - name: http2
+      port: 8083
       targetPort: 80

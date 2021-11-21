@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-volume
+  labels:
+    demo: volume
+
+spec:
+  containers:
+    - name: nginx-volume
+      image: nginx:alpine
+      resources:
+        limits:
+          cpu: 10m
+          memory: 100Mi
+      volumeMounts:
+        - name: vol1
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+
+    - name: alpine-update
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - while true; do date >> /app/index.html; touch file; sleep 10; done # Every 10s new content will be append on default index's nginx on first pod :)
+      resources:
+        limits:
+          cpu: 10m
+          memory: 100Mi
+      volumeMounts:
+        - name: vol1
+          mountPath: /app
+  volumes:
+    - name: vol1
+      emptyDir: {}
+        

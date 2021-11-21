@@ -11,6 +11,25 @@ spec:
       image: nginx:alpine
       ports:
         - containerPort: 80
+      env:
+        - name: FIRSTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: my-simple-cm
+              key: firstName
+
+        - name: LASTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: my-simple-cm
+              key: lastName
+
+        - name: HOBBIES
+          valueFrom:
+            configMapKeyRef:
+              name: my-simple-cm
+              key: hobbies.name
+
       livenessProbe:
         httpGet:
           path: /index.html

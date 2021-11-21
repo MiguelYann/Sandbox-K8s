@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-simple-cm
+  labels:
+    app: conf
+
+data:
+  firstName: Miguel
+  lastName: Yann
+  hobbies.name: tennis

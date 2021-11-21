@@ -6,6 +6,11 @@ metadata:
     app: my-app
     backend: mybackend
 spec:
+
+  volumes:
+    - name: mycm-vol
+      configMap:
+        name: my-cm-file
   containers:
     - name: my-container-nginx
       image: nginx:alpine
@@ -15,20 +20,24 @@ spec:
         - name: FIRSTNAME
           valueFrom:
             configMapKeyRef:
-              name: my-simple-cm
+              name: my-cm-env
               key: firstName
 
         - name: LASTNAME
           valueFrom:
             configMapKeyRef:
-              name: my-simple-cm
+              name: my-cm-env
               key: lastName
 
         - name: HOBBIES
           valueFrom:
             configMapKeyRef:
-              name: my-simple-cm
+              name: my-cm-env
               key: hobbies.name
+
+      envFrom:
+        - configMapRef:
+            name: my-cm-envs
 
       livenessProbe:
         httpGet:
@@ -48,3 +57,7 @@ spec:
         limits:
           cpu: 200m
           memory: 128Mi
+
+      volumeMounts:
+        - name: mycm-vol
+          mountPath: /etc/app

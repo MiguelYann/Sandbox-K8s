@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeapp
+  labels:
+    app: backend
+
+spec:
+  volumes:
+    - name: myvolume
+      configMap:
+        name: my-cm-env
+  containers:
+    - name: nodeback
+      image: mytsamba/node-demo:1.0.1
+      envFrom:
+        - configMapRef:
+            name: cm-env
+      ports:
+        - containerPort: 3000
+      resources:
+      volumeMounts:
+        - name: myvolume
+          mountPath: /etc/app
+      

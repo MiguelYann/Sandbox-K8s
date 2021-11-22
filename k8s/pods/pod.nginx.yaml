@@ -11,6 +11,10 @@ spec:
     - name: mycm-vol
       configMap:
         name: my-cm-file
+    - name: mysecret-vol
+      secret:
+        secretName: my-secret
+
   containers:
     - name: my-container-nginx
       image: nginx:alpine
@@ -34,6 +38,12 @@ spec:
             configMapKeyRef:
               name: my-cm-env
               key: hobbies.name
+
+        - name: DB_ROOT_PWD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: db-pwd
 
       envFrom:
         - configMapRef:
@@ -61,3 +71,5 @@ spec:
       volumeMounts:
         - name: mycm-vol
           mountPath: /etc/app
+        - name: mysecret-vol
+          mountPath: /etc/app/confidentials
